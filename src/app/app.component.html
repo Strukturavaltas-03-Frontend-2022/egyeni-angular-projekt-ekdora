@@ -1,1 +1,3 @@
-<router-outlet></router-outlet>
+<ng-container *ngIf="(movies | async)?.length">
+  <router-outlet></router-outlet>
+</ng-container>
