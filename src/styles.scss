@@ -92,6 +92,8 @@ $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
+$light-bg-darker-40:  darken($light-background, 40%);
+$light-bg-darker-50:  darken($light-background, 50%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
 $dark-bg-tooltip:     lighten(#122e41, 20%);
 $dark-bg-alpha-4:     rgba(#122e41, 0.04);
@@ -121,6 +123,9 @@ $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
+$dark-bg-lighter-40:  lighten($dark-background, 40%);
+$dark-bg-lighter-50:  lighten($dark-background, 50%);
+$dark-bg-darker-10:    darken($dark-background, 10%);
 $light-bg-alpha-4:    rgba(#e0dfdf, 0.04);
 $light-bg-alpha-12:   rgba(#e0dfdf, 0.12);
 
@@ -248,7 +253,33 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 }
 
 body {
-  background-color: $dark-background;
+  background: linear-gradient(90deg, $dark-bg-darker-10 0%,  $dark-bg-lighter-10 49%, $dark-bg-darker-10 100%);
+}
+
+.content-container {
+  @media screen and (min-width: 1400px) {
+    padding: 2rem 8rem;
+  }
+
+  @media screen and (min-width: 1200px) and (max-width: 1399px) {
+    padding: 2rem 5rem;
+  }
+
+  @media screen and (min-width: 992px) and (max-width: 1199px) {
+    padding: 2rem 1.5rem;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    padding: 2rem 3rem;
+  }
+
+  @media screen and (min-width: 576px) and (max-width: 767px) {
+    padding: 2rem 1.5rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 2rem 3rem;
+  }
 }
 
 @tailwind base;

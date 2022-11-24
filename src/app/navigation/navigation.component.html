@@ -1,0 +1,23 @@
+<nav class="navbar flex items-center gap-6 sticky top-0">
+  <div>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="navbar__brand">
+    <a class="" routerLink="/">{{ appName }}</a>
+  </div>
+  <div class="">
+    <ul class="flex items-center gap-4">
+      <li *ngFor="let item of menuItems" class="">
+        <a
+          class="navbar__links"
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ item.text }}</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

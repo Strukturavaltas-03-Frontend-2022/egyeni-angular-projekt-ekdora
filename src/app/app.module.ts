@@ -9,10 +9,20 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { MovieCardComponent } from './common/movie-card/movie-card.component';
+import { MovieListComponent } from './common/movie-list/movie-list.component';
+import { HomeComponent } from './page/home/home.component';
+import { MoviesComponent } from './page/movies/movies.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    MovieCardComponent,
+    MovieListComponent,
+    HomeComponent,
+    MoviesComponent
   ],
   imports: [
     AppRoutingModule,

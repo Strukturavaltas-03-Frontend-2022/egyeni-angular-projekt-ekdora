@@ -1,0 +1,15 @@
+<div class="movie-card flex flex-col">
+  <div class="movie-card__poster flex justify-center">
+    <img [src]="movie.poster" class="">
+  </div>
+  <div class="flex justify-between">
+    <div class="movie-card__descriptor flex flex-col gap-2 leading-4">
+      <div class="movie-card__descriptor-title font-medium text-center">{{ movie.title }}</div>
+      <div class="break-all text-sm italic text-center">{{ movie.releaseYear }}</div>
+    </div>
+  </div>
+  <div class="movie-card__buttons flex justify-between">
+    <button mat-raised-button color="warn">Delete</button>
+    <button mat-raised-button color="accent">Edit</button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+@import '../../styles.scss';
+
+.navbar {
+  background: linear-gradient(90deg, $dark-background 0%,  $dark-bg-lighter-10 49%, $dark-background 100%);
+
+  .active {
+    border-bottom: 1px solid #b3d2e3;
+    color: #0369a1;
+  }
+
+  &__brand {
+    color: #b3d2e3;;
+  }
+
+  &__links {
+    color: #b3d2e3;;
+
+    &:hover {
+      color: #0369a1;
+    }
+  }
+}

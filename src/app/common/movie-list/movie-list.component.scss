@@ -1,0 +1,24 @@
+.movie-list {
+  &__card {
+    &s {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    display: flex;
+
+    @media screen and (min-width: 992px) {
+      width: calc(100% / 4 - 2.25rem);
+    }
+
+    @media screen and (min-width: 576px) and (max-width: 991px) {
+      width: calc(100% / 2 - 1.5rem);
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 575px) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
