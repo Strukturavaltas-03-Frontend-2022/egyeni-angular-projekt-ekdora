@@ -13,7 +13,7 @@ export class ConfigService {
   appName: string = 'My Movies';
 
   menuItems: IMenuItem[] = [
-    { text: 'Home', link: '/', icon: 'home' },
+    { text: 'Home', link: 'home', icon: 'home' },
     { text: 'Movie List', link: 'movies' },
     { text: 'Movie Editor', link: '' },
   ];

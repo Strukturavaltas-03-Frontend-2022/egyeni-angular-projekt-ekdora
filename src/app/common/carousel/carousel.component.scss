@@ -1,0 +1,29 @@
+.carousel {
+  gap: 2%;
+
+  &__btn {
+      min-width: var(--carousel-button-width);
+      max-width: var(--carousel-button-width);
+
+    & button {
+      @apply border-0 bg-transparent;
+      transform: scale(calc(10/6));
+    }
+  }
+
+  &__card {
+    min-width: calc(var(--carousel-cards-width) / var(--carousel-card-num));
+    max-width: calc(var(--carousel-cards-width) / var(--carousel-card-num));
+
+    &s {
+      width: var(--carousel-cards-container-width);
+      overflow: hidden;
+
+      &_wrapper {
+        gap: var(--carousel-card-gap);
+        transform: translate(var(--carousel-offset));
+        transition: transform 2s ease-in-out;
+      }
+    }
+  }
+}

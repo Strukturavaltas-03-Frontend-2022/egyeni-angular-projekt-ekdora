@@ -1,7 +1,7 @@
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
-* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzAzNjlhMSIsIj9lcjwjYjNkMmUzIiwiO2VyPCMwMjRjODV$LCIlPmBePCM3YmQwNjUiLCI~ZXI8I2Q3ZjFkMSIsIjtlcjwjNWViZTQ5fiwid2Fybj5gXjwjZjM5NTY4IiwiP2VyPCNmYmRmZDIiLCI7ZXI8I2VkNzg0Yn4sIj9UZXh0PCMzNzNhNGIiLCI~PTwjZTBkZmRmIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMxMjJlNDF$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz5mYWxzZSwidmVyc2lvbj4xMX0=
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzA3NTk4NSIsIj9lcjwjYjVjZGRhIiwiO2VyPCMwNDNlNjh$LCIlPmBePCMxNmEzNGEiLCI~ZXI8I2I5ZTNjOSIsIjtlcjwjMGM4ODMyfiwid2Fybj5gXjwjYzI0MTBjIiwiP2VyPCNlZGM2YjYiLCI7ZXI8I2FjMmEwNn4sIj9UZXh0PCMwZjE3MmEiLCI~PTwjZTJlOGYwIiwiO1RleHQ8I2UyZThmMCIsIjs9PCMwZjE3MmF$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz5mYWxzZSwidmVyc2lvbj4xMX0=
 */
 
 @import '~@angular/material/theming';
@@ -32,7 +32,7 @@ $fontConfig: (
 // Foreground Elements
 
 // Light Theme Text
-$dark-text: #373a4b;
+$dark-text: #0f172a;
 $dark-primary-text: rgba($dark-text, 0.87);
 $dark-accent-text: rgba($dark-primary-text, 0.54);
 $dark-disabled-text: rgba($dark-primary-text, 0.38);
@@ -59,7 +59,7 @@ $mat-light-theme-foreground: (
 );
 
 // Dark Theme text
-$light-text: #ffffff;
+$light-text: #e2e8f0;
 $light-primary-text: $light-text;
 $light-accent-text: rgba($light-primary-text, 0.7);
 $light-disabled-text: rgba($light-primary-text, 0.5);
@@ -87,17 +87,15 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #e0dfdf;
+$light-background:    #e2e8f0;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
-$light-bg-darker-40:  darken($light-background, 40%);
-$light-bg-darker-50:  darken($light-background, 50%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
-$dark-bg-tooltip:     lighten(#122e41, 20%);
-$dark-bg-alpha-4:     rgba(#122e41, 0.04);
-$dark-bg-alpha-12:    rgba(#122e41, 0.12);
+$dark-bg-tooltip:     lighten(#0f172a, 20%);
+$dark-bg-alpha-4:     rgba(#0f172a, 0.04);
+$dark-bg-alpha-12:    rgba(#0f172a, 0.12);
 
 $mat-light-theme-background: (
   background:               $light-background,
@@ -118,16 +116,13 @@ $mat-light-theme-background: (
 );
 
 // Dark bg
-$dark-background:     #122e41;
+$dark-background:     #0f172a;
 $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
-$dark-bg-lighter-40:  lighten($dark-background, 40%);
-$dark-bg-lighter-50:  lighten($dark-background, 50%);
-$dark-bg-darker-10:    darken($dark-background, 10%);
-$light-bg-alpha-4:    rgba(#e0dfdf, 0.04);
-$light-bg-alpha-12:   rgba(#e0dfdf, 0.12);
+$light-bg-alpha-4:    rgba(#e2e8f0, 0.04);
+$light-bg-alpha-12:   rgba(#e2e8f0, 0.12);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -154,18 +149,18 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #0369a1;
-  --primary-lighter-color: #b3d2e3;
-  --primary-darker-color: #024c85;
+  --primary-color: #075985;
+  --primary-lighter-color: #b5cdda;
+  --primary-darker-color: #043e68;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 $mat-primary: (
-  main: #0369a1,
-  lighter: #b3d2e3,
-  darker: #024c85,
-  200: #0369a1, // For slide toggle,
+  main: #075985,
+  lighter: #b5cdda,
+  darker: #043e68,
+  200: #075985, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,
@@ -176,44 +171,44 @@ $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #7bd065;
-  --accent-lighter-color: #d7f1d1;
-  --accent-darker-color: #5ebe49;
-  --text-accent-color: #{$dark-primary-text};
+  --accent-color: #16a34a;
+  --accent-lighter-color: #b9e3c9;
+  --accent-darker-color: #0c8832;
+  --text-accent-color: #{$light-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
-  --text-accent-darker-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
 }
 $mat-accent: (
-  main: #7bd065,
-  lighter: #d7f1d1,
-  darker: #5ebe49,
-  200: #7bd065, // For slide toggle,
+  main: #16a34a,
+  lighter: #b9e3c9,
+  darker: #0c8832,
+  200: #16a34a, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
 
 body {
-  --warn-color: #f39568;
-  --warn-lighter-color: #fbdfd2;
-  --warn-darker-color: #ed784b;
-  --text-warn-color: #{$dark-primary-text};
+  --warn-color: #c2410c;
+  --warn-lighter-color: #edc6b6;
+  --warn-darker-color: #ac2a06;
+  --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
-  --text-warn-darker-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
 }
 $mat-warn: (
-  main: #f39568,
-  lighter: #fbdfd2,
-  darker: #ed784b,
-  200: #f39568, // For slide toggle,
+  main: #c2410c,
+  lighter: #edc6b6,
+  darker: #ac2a06,
+  200: #c2410c, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);
@@ -252,10 +247,6 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   }
 }
 
-body {
-  background: linear-gradient(90deg, $dark-bg-darker-10 0%,  $dark-bg-lighter-10 49%, $dark-bg-darker-10 100%);
-}
-
 .content-container {
   @media screen and (min-width: 1400px) {
     padding: 2rem 8rem;
@@ -285,3 +276,15 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+// primary: sky-800
+// primary-lighter: sky-300
+// primary-darker: sky-900
+// accent: green-600
+// warning: orange-700
+// dark-bg: slate-900
+// dark-bg-lighter: slate-700
+// dark-bg-lighter-lighter: slate-500
+// light-bg: slate-200
+// dark-text: slate-900
+// light-text: slate-200

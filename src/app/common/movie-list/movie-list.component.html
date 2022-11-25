@@ -1,6 +1,6 @@
-<div class="movie-list__cards">
+<div class="flex flex-wrap gap-12">
   <app-movie-card
-    class="movie-list__card"
+    class="movie-list__card flex"
     [movie]="item"
     *ngFor="let item of movies"
   ></app-movie-card>

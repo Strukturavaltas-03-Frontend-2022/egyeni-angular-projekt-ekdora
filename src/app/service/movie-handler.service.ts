@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { Movie } from '../common/movie.model';
 import { MovieService } from './movie.service';
 
@@ -37,4 +37,11 @@ export class MovieHandlerService {
   removeProduct(movieId: number) {
     this.movieSvc.remove(movieId).subscribe((movie) => this.getMovies());
   };
+
+  lastXYears(x: number) {
+    return this._movies.pipe(
+      map(movies => movies.filter(movie => movie.releaseYear > ((new Date()).getFullYear()) - x))
+    ) as Observable<Movie[]>;
+
+  }
 }

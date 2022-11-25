@@ -14,6 +14,7 @@ import { MovieCardComponent } from './common/movie-card/movie-card.component';
 import { MovieListComponent } from './common/movie-list/movie-list.component';
 import { HomeComponent } from './page/home/home.component';
 import { MoviesComponent } from './page/movies/movies.component';
+import { CarouselComponent } from './common/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MoviesComponent } from './page/movies/movies.component';
     MovieCardComponent,
     MovieListComponent,
     HomeComponent,
-    MoviesComponent
+    MoviesComponent,
+    CarouselComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,22 +1,19 @@
-@import '../../styles.scss';
-
-.navbar {
-  background: linear-gradient(90deg, $dark-background 0%,  $dark-bg-lighter-10 49%, $dark-background 100%);
+.navigation {
+  @apply flex items-center gap-6 sticky top-0 z-20 font-medium;
 
   .active {
-    border-bottom: 1px solid #b3d2e3;
-    color: #0369a1;
+    @apply border-b border-sky-300 text-sky-300;
   }
 
   &__brand {
-    color: #b3d2e3;;
+    @apply text-sky-900;
   }
 
   &__links {
-    color: #b3d2e3;;
+    @apply text-sky-900;
 
     &:hover {
-      color: #0369a1;
+      @apply text-sky-300;
     }
   }
 }

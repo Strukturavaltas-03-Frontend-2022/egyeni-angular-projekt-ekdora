@@ -1,6 +1,6 @@
-<div class="movie-card flex flex-col">
+<div class="movie-card flex flex-col bg-gradient-to-r from-slate-600 via-slate-300 to-slate-600">
   <div class="movie-card__poster flex justify-center">
-    <img [src]="movie.poster" class="">
+    <img [src]="movie.poster">
   </div>
   <div class="flex justify-between">
     <div class="movie-card__descriptor flex flex-col gap-2 leading-4">
@@ -10,6 +10,6 @@
   </div>
   <div class="movie-card__buttons flex justify-between">
     <button mat-raised-button color="warn">Delete</button>
-    <button mat-raised-button color="accent">Edit</button>
+    <button mat-raised-button color="primary">Edit</button>
   </div>
 </div>

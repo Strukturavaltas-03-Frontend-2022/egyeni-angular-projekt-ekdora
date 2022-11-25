@@ -1,0 +1,31 @@
+<div [id]="'carousel-' + instance" class="carousel flex items-center">
+  <div class="carousel__btn flex justify-center">
+    <button
+      class="text-sky-300 disabled:text-sky-900 hover:[&:not(:disabled)]:text-sky-500"
+      type="button"
+      [disabled]="currPage === 0"
+      (click)="pager()"
+    >
+      <mat-icon svgIcon="chevron-left"></mat-icon>
+    </button>
+  </div>
+  <div class="carousel__cards">
+    <div class="carousel__cards_wrapper flex">
+      <ng-container *ngFor="let carouselItem of carouselItems | async">
+        <div class="carousel__card flex">
+          <app-movie-card class="w-full" [movie]="carouselItem"></app-movie-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="carousel__btn flex justify-center">
+    <button
+      class="text-sky-300 disabled:text-sky-900 hover:[&:not(:disabled)]:text-sky-500"
+      type="button"
+      [disabled]="currPage === maxPage"
+      (click)="pager(true)"
+    >
+      <mat-icon svgIcon="chevron-right"></mat-icon>
+    </button>
+  </div>
+</div>

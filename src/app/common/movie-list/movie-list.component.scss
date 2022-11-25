@@ -1,12 +1,5 @@
 .movie-list {
   &__card {
-    &s {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-    }
-    display: flex;
-
     @media screen and (min-width: 992px) {
       width: calc(100% / 4 - 2.25rem);
     }

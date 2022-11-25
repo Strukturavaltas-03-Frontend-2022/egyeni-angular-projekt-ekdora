@@ -1,31 +1,22 @@
-@import '../../../styles.scss';
-
 .movie-card {
+  @apply w-full p-[10%];
   cursor: pointer;
-  width: 100%;
-  background: linear-gradient(90deg, $dark-bg-lighter-10 0%,  $dark-bg-lighter-50 49%, $dark-bg-lighter-10 100%);
-  padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   border-radius: 2%;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
   &__poster {
-    width: 100%;
+    @apply w-full;
 
     img {
-      max-width: 100%;
-      height: 15rem;
-      object-fit : cover;
+      @apply min-w-full h-60 object-cover;
     }
   }
 
   &__descriptor {
-    width: 100%;
-    height: 7rem;
-    padding: 0.75rem 0.5rem;
+    @apply w-full h-28 py-3 px-2;
 
     &-title {
-      height: 3.75rem;
+      @apply h-[3.75rem];
     }
   }
-
 }
