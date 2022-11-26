@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, take, tap } from 'rxjs';
-import { Movie } from './common/movie.model';
+import { Movie } from './common/model/movie.model';
 import { MovieHandlerService } from './service/movie-handler.service';
 
 

@@ -5,7 +5,7 @@
       min-width: var(--carousel-button-width);
       max-width: var(--carousel-button-width);
 
-    & button {
+    button {
       @apply border-0 bg-transparent;
       transform: scale(calc(10/6));
     }

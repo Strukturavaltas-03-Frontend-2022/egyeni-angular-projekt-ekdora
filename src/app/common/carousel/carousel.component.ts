@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { debounceTime, fromEvent, Observable, Subscription, tap } from 'rxjs';
-import { Movie } from '../movie.model';
+import { Movie } from '../model/movie.model';
 
 let instanceCounter = 0;
 

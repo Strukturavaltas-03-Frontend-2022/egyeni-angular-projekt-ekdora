@@ -9,12 +9,13 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './common/navigation/navigation.component';
 import { MovieCardComponent } from './common/movie-card/movie-card.component';
 import { MovieListComponent } from './common/movie-list/movie-list.component';
 import { HomeComponent } from './page/home/home.component';
 import { MoviesComponent } from './page/movies/movies.component';
 import { CarouselComponent } from './common/carousel/carousel.component';
+import { PaginationComponent } from './common/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CarouselComponent } from './common/carousel/carousel.component';
     MovieListComponent,
     HomeComponent,
     MoviesComponent,
-    CarouselComponent
+    CarouselComponent,
+    PaginationComponent
   ],
   imports: [
     AppRoutingModule,

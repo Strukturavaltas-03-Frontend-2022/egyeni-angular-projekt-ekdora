@@ -1,0 +1,25 @@
+<div class="pagination">
+  <div class="pagination__pager">
+    <button mat-icon-button (click)="jumpTo(false)">
+      <mat-icon svgIcon="page-first"></mat-icon>
+    </button>
+    <button mat-icon-button (click)="pager(false)">
+      <mat-icon svgIcon="chevron-left"></mat-icon>
+    </button>
+    <div>{{ currPage + " / " + maxPage }}</div>
+    <button mat-icon-button (click)="pager(true)">
+      <mat-icon svgIcon="chevron-right"></mat-icon>
+    </button>
+    <button mat-icon-button (click)="jumpTo(true)">
+      <mat-icon svgIcon="page-last"></mat-icon>
+    </button>
+  </div>
+  <div class="pagination__select">
+    <div class="text-white">Movies per page: </div>
+    <div>
+      <select (change)="changePageSize($event)">
+        <option *ngFor="let item of pageSizes" [selected]="pageSize === item" [value]="item">{{ item }}</option>
+      </select>
+    </div>
+  </div>
+</div>

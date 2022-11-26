@@ -1,7 +1,10 @@
+<div>
+  <app-pagination [listItems]="movies" (pageElements)="handlePage($event)"></app-pagination>
+</div>
 <div class="flex flex-wrap gap-12">
   <app-movie-card
     class="movie-list__card flex"
     [movie]="item"
-    *ngFor="let item of movies"
+    *ngFor="let item of pagenatedList"
   ></app-movie-card>
 </div>

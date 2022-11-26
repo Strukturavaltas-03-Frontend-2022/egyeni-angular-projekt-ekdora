@@ -1,0 +1,8 @@
+.home {
+  @apply flex flex-col items-center justify-center;
+
+  &__intro {
+    @apply flex flex-col justify-center text-center text-white py-4 w-3/5;
+  }
+}
+

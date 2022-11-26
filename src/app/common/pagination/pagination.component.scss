@@ -1,0 +1,17 @@
+.pagination {
+  @apply flex justify-end items-center text-lg gap-2 py-4;
+
+  button {
+    mat-icon {
+      transform: scale(calc(5/4));
+    }
+  }
+
+  &__pager {
+    @apply flex justify-end items-center text-white;
+  }
+
+  &__select {
+    @apply flex justify-end items-center gap-2;
+  }
+}

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
-import { Movie } from '../common/movie.model';
+import { Movie } from '../common/model/movie.model';
 import { MovieService } from './movie.service';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class MovieHandlerService {
   getMovies() {
     this.movieSvc.getAll()
       .pipe(
-        tap((movies: Movie[]) => this._movies.next(movies.slice(0, 99)))
+        tap((movies: Movie[]) => this._movies.next(movies.slice(0, 100)))
       ).subscribe();
   };
 
