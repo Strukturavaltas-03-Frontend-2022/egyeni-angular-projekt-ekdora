@@ -8,9 +8,20 @@ import { MovieService } from './movie.service';
 })
 export class MovieHandlerService {
   private _movies = new BehaviorSubject<Movie[]>([]);
+  private _genres: string[] = [];
+  private _releaseYears: number[] = [];
+  private _releaseYearRanges: string[] = [];
 
   get movies() {
     return this._movies as Observable<Movie[]>;
+  }
+
+  get genres() {
+    return this._genres;
+  }
+
+  get releaseYearRanges() {
+    return this._releaseYearRanges;
   }
 
   constructor(private movieSvc: MovieService) {}
@@ -18,7 +29,22 @@ export class MovieHandlerService {
   getMovies() {
     this.movieSvc.getAll()
       .pipe(
-        tap((movies: Movie[]) => this._movies.next(movies.slice(0, 100)))
+        tap(
+          (movies: Movie[]) => {
+            const first100Movies = movies.slice(0, 100);
+            this._movies.next(first100Movies);
+            first100Movies.forEach(movie => {
+              this._genres = [ ...this._genres, ...movie['genre'].split('|')];
+              this._releaseYears.push(movie['releaseYear']);
+            });
+            this._genres = [ ...new Set(this._genres) ]
+              .filter(cat => cat !== '(no genres listed)')
+              .sort(Intl.Collator().compare);
+            this._releaseYears = [ ...new Set(this._releaseYears) ].sort();
+            this.setReleaseYearRanges();
+            console.log(this._genres, this._releaseYears, this._releaseYearRanges);
+          }
+        )
       ).subscribe();
   };
 
@@ -26,15 +52,15 @@ export class MovieHandlerService {
     return this.movieSvc.get(movieId);
   };
 
-  createProduct(movie: Movie) {
+  createMovie(movie: Movie) {
     this.movieSvc.create(movie).subscribe((movie) => this.getMovies());
   };
 
-  modifyProduct(movie: Movie) {
+  modifyMovie(movie: Movie) {
     this.movieSvc.update(movie).subscribe((movie) => this.getMovies());
   };
 
-  removeProduct(movieId: number) {
+  removeMovie(movieId: number) {
     this.movieSvc.remove(movieId).subscribe((movie) => this.getMovies());
   };
 
@@ -42,6 +68,20 @@ export class MovieHandlerService {
     return this._movies.pipe(
       map(movies => movies.filter(movie => movie.releaseYear > ((new Date()).getFullYear()) - x))
     ) as Observable<Movie[]>;
+  }
 
+  private setReleaseYearRanges() {
+    let releaseYear = 0;
+    let releaseYearRangeStart = 0;
+    let releaseYearRangeEnd = 0;
+
+    this._releaseYears.forEach(rY => {
+      if(Math.floor(rY / 10) !== Math.floor(releaseYear / 10)) {
+        releaseYearRangeStart = rY - rY % 10;
+        releaseYearRangeEnd = releaseYearRangeStart + 9;
+        this._releaseYearRanges.push(`${releaseYearRangeStart} - ${releaseYearRangeEnd}`);
+      }
+      releaseYear = rY;
+    });
   }
 }

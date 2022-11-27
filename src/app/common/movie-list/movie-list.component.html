@@ -1,3 +1,58 @@
+<div class="text-white">
+  <mat-slide-toggle color="primary" (change)="switchFilter()">Filter</mat-slide-toggle>
+  <div *ngIf="showFilter">
+    <form [formGroup]="movieListForm" class="movie-list__form">
+      <mat-form-field appearance="fill" class="movie-list__form_input">
+        <mat-label>Title</mat-label>
+        <input type="input" matInput formControlName="title" minlength="3">
+        <mat-error *ngIf="movieListForm.controls['title'].hasError('minlength')">
+          Minimum 3 characters
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="movie-list__form_input">
+        <mat-label>Genre</mat-label>
+        <mat-select formControlName="genre">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let genre of genres" [value]="genre">
+            {{ genre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="movie-list__form_input">
+        <mat-label>Director</mat-label>
+        <input type="input" matInput formControlName="director" minlength="3">
+        <mat-error *ngIf="movieListForm.controls['director'].hasError('minlength')">
+          Minimum 3 characters
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="movie-list__form_input">
+        <mat-label>Release year</mat-label>
+        <mat-select formControlName="releaseYear">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let releaseYearRange of releaseYearRanges" [value]="releaseYearRange">
+            {{ releaseYearRange }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="movie-list__form_input">
+        <mat-label>Studio</mat-label>
+        <input type="input" matInput formControlName="studio" minlength="3">
+        <mat-error *ngIf="movieListForm.controls['studio'].hasError('minlength')">
+          Minimum 3 characters
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div class="movie-list__filter-btn">
+      <button
+        mat-raised-button
+        color="primary"
+        class="text-lg"
+        [disabled]="movieListForm.invalid"
+        (click)="filterMovies()"
+      >Filter</button>
+    </div>
+  </div>
+</div>
 <div>
   <app-pagination [listItems]="movies" (pageElements)="handlePage($event)"></app-pagination>
 </div>

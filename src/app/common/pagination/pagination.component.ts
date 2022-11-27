@@ -49,6 +49,7 @@ export class PaginationComponent implements OnInit {
 
   private setPaginator() {
     this.chunkedList = chunk(this.listItems, this.pageSize);
+    this.currPage = 1;
     this.maxPage = this.chunkedList.length;
     this.pageElements.emit(this.chunkedList[0]);
   }

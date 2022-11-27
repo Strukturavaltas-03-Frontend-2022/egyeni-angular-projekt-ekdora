@@ -2,7 +2,23 @@
   @apply flex flex-col items-center justify-center;
 
   &__intro {
-    @apply flex flex-col justify-center text-center text-white py-4 w-3/5;
+    @apply flex flex-col justify-center text-left text-white px-8 py-6;
+
+    &-title {
+      @apply font-bold text-4xl pb-4;
+    }
+
+    &-prologue {
+      @apply text-lg;
+
+      @media screen and (min-width: 992px) {
+        @apply w-1/2;
+      }
+    }
+
+    &-heading {
+      @apply text-white text-2xl italic px-8 py-6;
+    }
   }
 }
 

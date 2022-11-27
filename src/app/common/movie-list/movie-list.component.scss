@@ -1,4 +1,17 @@
 .movie-list {
+  &__form {
+    @apply flex flex-wrap gap-[5%] px-[3%] pt-[3%];
+
+    &_input {
+      @apply mb-4;
+      width: calc(90% / 3);
+    }
+  }
+
+  &__filter-btn {
+    @apply flex justify-end px-[3%] pb-[3%];
+  }
+
   &__card {
     @media screen and (min-width: 992px) {
       width: calc(100% / 4 - 2.25rem);
