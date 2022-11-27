@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MovieHandlerService } from 'src/app/service/movie-handler.service';
 
 @Component({
@@ -6,13 +6,8 @@ import { MovieHandlerService } from 'src/app/service/movie-handler.service';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent {
+  public movies$ = this.movieHandlerSvc.filteredMovies;
 
-  public movies$ = this.movieHandlerSvc.movies;
-
-  constructor(private movieHandlerSvc: MovieHandlerService) { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(private movieHandlerSvc: MovieHandlerService) {}
 }

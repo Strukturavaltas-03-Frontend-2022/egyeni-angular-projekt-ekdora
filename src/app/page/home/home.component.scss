@@ -1,23 +1,43 @@
 .home {
-  @apply flex flex-col items-center justify-center;
+  @apply flex flex-col;
 
   &__intro {
-    @apply flex flex-col justify-center text-left text-white px-8 py-6;
+    @apply flex flex-col justify-center text-left text-white py-8;
+
+    @media screen and (min-width: 576px) {
+      @apply px-20;
+    }
+
+    @media screen and (max-width: 575px) {
+      @apply px-10;
+    }
 
     &-title {
       @apply font-bold text-4xl pb-4;
     }
 
     &-prologue {
-      @apply text-lg;
-
-      @media screen and (min-width: 992px) {
-        @apply w-1/2;
-      }
+      @apply text-lg text-justify pb-4;
     }
 
     &-heading {
-      @apply text-white text-2xl italic px-8 py-6;
+      @apply text-white text-2xl italic pb-8;
+
+      @media screen and (min-width: 576px) {
+        @apply px-20;
+      }
+
+      @media screen and (max-width: 575px) {
+        @apply px-10;
+      }
+    }
+
+    &-btn {
+      @apply flex justify-end;
+
+      button {
+        @apply text-lg;
+      }
     }
   }
 }

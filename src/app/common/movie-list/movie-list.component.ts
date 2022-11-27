@@ -1,6 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { MovieHandlerService } from 'src/app/service/movie-handler.service';
+import { DataObject } from '../model/data-object.interface';
 import { Movie } from '../model/movie.model';
 
 @Component({
@@ -8,14 +11,15 @@ import { Movie } from '../model/movie.model';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
-export class MovieListComponent {
-  @Input() movies: Movie[] = [];
+export class MovieListComponent implements OnInit, OnDestroy {
+  @Input() movies$: Observable<Movie[]> | undefined;
 
   public pagenatedList: Movie[] = [];
-  public showFilter = false;
+  public showFilter = new BehaviorSubject<boolean>(false);
   public movieListForm: FormGroup;
   public genres = this.movieHandlerSvc.genres;
   public releaseYearRanges = this.movieHandlerSvc.releaseYearRanges;
+  private showFilterSubscription: Subscription | undefined;
 
   constructor(
     private movieHandlerSvc: MovieHandlerService,
@@ -30,15 +34,34 @@ export class MovieListComponent {
     });
   }
 
+  ngOnInit() {
+    this.showFilterSubscription = this.showFilter.subscribe(
+      showFilter => !showFilter && this.movieHandlerSvc.filterMovies({})
+    );
+  }
+
+  ngOnDestroy() {
+    this.showFilterSubscription?.unsubscribe();
+  }
+
   handlePage(event: Movie[]) {
     this.pagenatedList = event;
   }
 
-  switchFilter() {
-    this.showFilter = !this.showFilter;
+  switchFilter(event: MatSlideToggleChange) {
+    this.showFilter.next(event.checked);
   }
 
   filterMovies() {
-    console.log(this.movieListForm.value);
+    const formEntries = this.movieListForm.value;
+    let modifiedFormEntries: DataObject = {};
+    Object.keys(formEntries).forEach(formItemName => {
+      const formEntry = formEntries[formItemName];
+      if(formEntry) {
+        modifiedFormEntries[formItemName] = formEntry;
+      }
+    });
+
+    this.movieHandlerSvc.filterMovies(modifiedFormEntries);
   }
 }

@@ -5,8 +5,8 @@
     @apply border-b border-sky-300 text-sky-300;
   }
 
-  &__brand {
-    @apply text-sky-900;
+  &__title {
+    @apply m-0 text-sky-900 cursor-default;
   }
 
   &__links {

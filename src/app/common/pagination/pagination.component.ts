@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { chunk } from 'lodash-es';
+import { Observable, Subscription, take, tap } from 'rxjs';
 
 @Component({
   selector: 'app-pagination',
@@ -7,7 +8,7 @@ import { chunk } from 'lodash-es';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  @Input() listItems: any[] | undefined;
+  @Input() listItems$: Observable<any[]> | undefined;
   @Output() pageElements: EventEmitter<any[]> = new EventEmitter();
 
   public currPage = 1;
@@ -15,11 +16,20 @@ export class PaginationComponent implements OnInit {
   public pageSizes = [5, 10, 20, 50, 100]
   public pageSize = 20;
   private chunkedList: any[] = [];
+  private listItemsSubscription: Subscription | undefined;
 
   constructor() {}
 
   ngOnInit() {
-    this.setPaginator();
+    this.listItemsSubscription = this.listItems$?.pipe(
+      tap((listItems) => {
+        this.setPaginator(listItems);
+      })
+    ).subscribe();
+  }
+
+  ngOnDestroy() {
+    this.listItemsSubscription?.unsubscribe();
   }
 
   pager(right: boolean) {
@@ -44,11 +54,16 @@ export class PaginationComponent implements OnInit {
 
   changePageSize(event: any) {
     this.pageSize = event.target.value;
-    this.setPaginator();
+    this.listItems$?.pipe(
+      take(1),
+      tap((listItems) => {
+        this.setPaginator(listItems);
+      })
+    ).subscribe();
   }
 
-  private setPaginator() {
-    this.chunkedList = chunk(this.listItems, this.pageSize);
+  private setPaginator(listItems: any[]) {
+    this.chunkedList = chunk(listItems, this.pageSize);
     this.currPage = 1;
     this.maxPage = this.chunkedList.length;
     this.pageElements.emit(this.chunkedList[0]);

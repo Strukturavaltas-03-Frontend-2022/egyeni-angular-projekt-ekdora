@@ -5,6 +5,10 @@ import { MoviesComponent } from './page/movies/movies.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: HomeComponent,
+  },
+  {
     path: 'home',
     component: HomeComponent,
   },

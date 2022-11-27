@@ -4,9 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div class="navigation__brand">
-    <a routerLink="/">{{ appName }}</a>
-  </div>
+  <h1 class="navigation__title">{{ appName }}</h1>
   <div>
     <ul class="navigation__list flex items-center gap-4">
       <li *ngFor="let item of menuItems">

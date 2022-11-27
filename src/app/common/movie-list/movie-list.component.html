@@ -1,6 +1,11 @@
 <div class="text-white">
-  <mat-slide-toggle color="primary" (change)="switchFilter()">Filter</mat-slide-toggle>
-  <div *ngIf="showFilter">
+  <div class="flex items-center justify-between">
+    <mat-slide-toggle class="text-lg" color="primary" (change)="switchFilter($event)">Filter movies</mat-slide-toggle>
+    <button class="text-lg" mat-raised-button color="primary" type="button">
+      Create movie
+    </button>
+  </div>
+  <div *ngIf="showFilter | async">
     <form [formGroup]="movieListForm" class="movie-list__form">
       <mat-form-field appearance="fill" class="movie-list__form_input">
         <mat-label>Title</mat-label>
@@ -53,9 +58,7 @@
     </div>
   </div>
 </div>
-<div>
-  <app-pagination [listItems]="movies" (pageElements)="handlePage($event)"></app-pagination>
-</div>
+<app-pagination [listItems$]="movies$" (pageElements)="handlePage($event)"></app-pagination>
 <div class="flex flex-wrap gap-12">
   <app-movie-card
     class="movie-list__card flex"

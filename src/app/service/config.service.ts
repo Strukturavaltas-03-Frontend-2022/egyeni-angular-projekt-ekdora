@@ -15,7 +15,6 @@ export class ConfigService {
   menuItems: IMenuItem[] = [
     { text: 'Home', link: 'home', icon: 'home' },
     { text: 'Movie List', link: 'movies' },
-    { text: 'Movie Editor', link: '' },
   ];
 
   constructor() { }
