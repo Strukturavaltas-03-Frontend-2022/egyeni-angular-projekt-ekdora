@@ -1,30 +1,30 @@
-<div class="movie-card flex flex-col bg-gradient-to-r from-slate-600 via-slate-300 to-slate-600">
+<div *ngIf="movie" class="movie-card flex flex-col bg-gradient-to-r from-slate-600 via-slate-300 to-slate-600">
   <div class="movie-card__poster flex justify-center">
-    <img [src]="movie?.poster">
+    <img [src]="movie.poster">
   </div>
   <div class="flex justify-between">
     <div class="movie-card__descriptor" [ngClass]="hasInfo ? 'h-44' : 'h-20'">
        <div class="movie-card__descriptor-title">
-        <span>{{ movie?.title }}</span>
+        <span>{{ movie.title }}</span>
       </div>
       <div *ngIf="hasInfo" class="movie-card__descriptor-info">
         <div class="movie-card__descriptor-info-item">
           <mat-icon svgIcon="calendar-month"> </mat-icon>
-          <span>{{ movie?.releaseYear }}</span>
+          <span>{{ movie.releaseYear }}</span>
         </div>
         <div class="movie-card__descriptor-info-item">
           <mat-icon svgIcon="movie-open"> </mat-icon>
-          <span>{{ movie?.director }}</span>
+          <span>{{ movie.director }}</span>
         </div>
         <div class="movie-card__descriptor-info-item">
           <mat-icon svgIcon="video-vintage"> </mat-icon>
-          <span>{{ movie?.studio }}</span>
+          <span>{{ movie.studio }}</span>
         </div>
       </div>
     </div>
   </div>
   <div *ngIf="hasButton" class="movie-card__buttons flex justify-between">
-    <button mat-raised-button color="warn">Delete</button>
-    <button mat-raised-button color="primary">Edit</button>
+    <button mat-raised-button color="warn" (click)="delete(movie.id)" >Delete</button>
+    <button mat-raised-button color="primary" [routerLink]="'/movies/' + movie.id">Edit</button>
   </div>
 </div>

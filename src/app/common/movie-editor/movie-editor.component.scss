@@ -1,6 +1,6 @@
 .movie-editor {
   &__form {
-    @apply flex flex-col gap-4 pt-8;
+    @apply flex flex-col gap-4 py-8;
 
     @media screen and (min-width: 992px) {
       @apply w-1/2;

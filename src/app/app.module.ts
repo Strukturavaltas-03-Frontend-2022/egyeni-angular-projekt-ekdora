@@ -11,6 +11,7 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { IMaskModule } from 'angular-imask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +44,7 @@ import { MovieEditorComponent } from './common/movie-editor/movie-editor.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    IMaskModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,

@@ -1,13 +1,13 @@
 <div class="home">
   <div class="home__intro">
-    <div class="home__intro-title">Welcome to movie world!</div>
-    <div class="home__intro-prologue">
+    <h1 class="home__intro-title">Welcome to movie world!</h1>
+    <p class="home__intro-prologue">
       The popcorn's been popped, the sweatpants are on, and the evening is your oyster.
       Your next challenge: Figuring out exactly which of the best movies available to you is the one
       you're going to watch tonight. No matter what you're looking for - a rom-com, a murder mystery,
       a sad film, a great musical movie - there are plenty of must-watch films that, if you haven't
       seen yet, now's the perfect time for.
-    </div>
+    </p>
     <div class="home__intro-btn">
       <button
         mat-raised-button
@@ -19,7 +19,10 @@
     </div>
   </div>
 </div>
-<div class="pb-4">
-  <div class="home__intro-heading">Movies from the latest 15 years</div>
-  <app-carousel [carouselItems]="last15YearsMovies$"></app-carousel>
+<div class="home__carousel">
+  <div class="home__carousel_heading">
+    <h2 class="home__carousel_heading-title">Movies from the latest 15 years</h2>
+    <p class="home__carousel_heading-total">Total: {{ (last10YearsMovies$ | async)?.length  }}</p>
+  </div>
+  <app-carousel [carouselItems]="last10YearsMovies$"></app-carousel>
 </div>

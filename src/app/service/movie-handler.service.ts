@@ -11,6 +11,7 @@ export class MovieHandlerService {
   private _movies = new BehaviorSubject<Movie[]>([]);
   private _filteredMovies = new BehaviorSubject<Movie[]>([]);
   private _genres: string[] = [];
+  private _posters: string[] = [];
   private _releaseYears: number[] = [];
   private _releaseYearRanges: string[] = [];
 
@@ -26,6 +27,11 @@ export class MovieHandlerService {
     return this._genres;
   }
 
+  get posters() {
+    return this._posters;
+  }
+
+
   get releaseYearRanges() {
     return this._releaseYearRanges;
   }
@@ -37,19 +43,20 @@ export class MovieHandlerService {
       .pipe(
         tap(
           (movies: Movie[]) => {
-            const first100Movies = movies.slice(0, 100);
-            this._movies.next(first100Movies);
-            this._filteredMovies.next(first100Movies);
-            first100Movies.forEach(movie => {
+            this._movies.next(movies);
+            this._filteredMovies.next(movies);
+            movies.forEach(movie => {
               this._genres = [ ...this._genres, ...movie['genre'].split('|')];
+              this._posters.push(movie['poster']);
               this._releaseYears.push(movie['releaseYear']);
             });
             this._genres = [ ...new Set(this._genres) ]
               .filter(cat => cat !== '(no genres listed)')
               .sort(Intl.Collator().compare);
+            this._posters = [ ...new Set(this._posters) ];
             this._releaseYears = [ ...new Set(this._releaseYears) ].sort();
             this.setReleaseYearRanges();
-            // console.log(this._genres, this._releaseYears, this._releaseYearRanges);
+            // console.log(this._genres, this._posters, this._releaseYears, this._releaseYearRanges);
           }
         )
       ).subscribe();

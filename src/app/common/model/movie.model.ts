@@ -1,6 +1,6 @@
 export class Movie {
   [key: string]: any;
-  id?: number = 0;
+  id: number = 0;
   title: string = '';
   genre: string = '';
   director: string = '';

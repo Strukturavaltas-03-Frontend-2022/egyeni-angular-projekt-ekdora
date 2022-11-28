@@ -18,7 +18,7 @@ const routes: Routes = [
     component: MoviesComponent,
   },
   {
-    path: 'movies/editor',
+    path: 'movies/:id',
     component: MovieEditorComponent,
   },
   {

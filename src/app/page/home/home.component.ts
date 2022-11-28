@@ -7,7 +7,7 @@ import { MovieHandlerService } from 'src/app/service/movie-handler.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  public last15YearsMovies$ = this.movieHandlerSvc.lastXYears(15);
+  public last10YearsMovies$ = this.movieHandlerSvc.lastXYears(10);
 
   constructor(private movieHandlerSvc: MovieHandlerService) {}
 }

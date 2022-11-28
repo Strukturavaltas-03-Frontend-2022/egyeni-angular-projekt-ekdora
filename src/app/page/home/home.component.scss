@@ -13,15 +13,27 @@
     }
 
     &-title {
-      @apply font-bold text-4xl pb-4;
+      @apply font-bold text-4xl pb-4 m-0;
     }
 
     &-prologue {
-      @apply text-lg text-justify pb-4;
+      @apply text-lg text-justify pb-4 m-0;
     }
 
-    &-heading {
-      @apply text-white text-2xl italic pb-8;
+    &-btn {
+      @apply flex justify-end;
+
+      button {
+        @apply text-lg;
+      }
+    }
+  }
+
+  &__carousel {
+    @apply  pb-4;
+
+    &_heading {
+      @apply flex items-center justify-between pb-8;
 
       @media screen and (min-width: 576px) {
         @apply px-20;
@@ -30,13 +42,13 @@
       @media screen and (max-width: 575px) {
         @apply px-10;
       }
-    }
 
-    &-btn {
-      @apply flex justify-end;
+      &-title {
+        @apply text-white text-2xl italic;
+      }
 
-      button {
-        @apply text-lg;
+      &-total {
+        @apply text-white m-0;
       }
     }
   }

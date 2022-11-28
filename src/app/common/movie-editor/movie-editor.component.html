@@ -10,15 +10,13 @@
         Minimum 3 characters
       </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="fill" class="movie-editor__form_input">
+    <mat-form-field appearance="fill" class="movie-list__form_input">
       <mat-label>Genre</mat-label>
-      <input type="input" matInput formControlName="genre" minlength="3">
-      <mat-error *ngIf="movieEditorForm.controls['genre'].hasError('required')">
-        This field is mandatory
-      </mat-error>
-      <mat-error *ngIf="movieEditorForm.controls['genre'].hasError('minlength')">
-        Minimum 3 characters
-      </mat-error>
+      <mat-select formControlName="genre" multiple>
+        <mat-option *ngFor="let genre of genres" [value]="genre">
+          {{ genre }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill" class="movie-editor__form_input">
       <mat-label>Director</mat-label>
@@ -32,13 +30,27 @@
     </mat-form-field>
     <mat-form-field appearance="fill" class="movie-editor__form_input">
       <mat-label>Release year</mat-label>
-      <input type="input" matInput formControlName="releaseYear" minlength="4">
+      <input
+        type="input"
+        matInput
+        formControlName="releaseYear"
+        minlength="4"
+        [imask]="yearMask"
+      >
       <mat-error *ngIf="movieEditorForm.controls['releaseYear'].hasError('required')">
         This field is mandatory
       </mat-error>
-      <mat-error *ngIf="movieEditorForm.controls['releaseYear'].hasError('minlength')">
-        Minimum 4 characters
+      <mat-error *ngIf="movieEditorForm.controls['releaseYear'].hasError('releaseYearError')">
+        Invalid value
       </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="movie-editor__form_input">
+      <mat-label>Poster</mat-label>
+      <mat-select formControlName="poster">
+        <mat-option *ngFor="let poster of posters" [value]="poster">
+          {{ poster }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill" class="movie-editor__form_input">
       <mat-label>Studio</mat-label>
@@ -52,8 +64,14 @@
     </mat-form-field>
     <mat-checkbox formControlName="active" color="primary" class="text-white">Active</mat-checkbox>
     <div class="movie-editor__form_action-btns">
-      <button mat-flat-button color="primary" class="text-lg">Cancel</button>
-      <button mat-raised-button color="accent" class="text-lg" [disabled]="movieEditorForm.invalid">
+      <button mat-flat-button class="slate-300" class="text-lg">Cancel</button>
+      <button
+        mat-raised-button
+        color="accent"
+        class="text-lg"
+        [disabled]="movieEditorForm.invalid"
+        (click)="save()"
+      >
         Save
       </button>
     </div>

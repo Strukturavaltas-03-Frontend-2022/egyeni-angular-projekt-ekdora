@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MovieHandlerService } from 'src/app/service/movie-handler.service';
 import { Movie } from '../model/movie.model';
 
 @Component({
@@ -11,5 +12,9 @@ export class MovieCardComponent {
   @Input() hasButton = true;
   @Input() hasInfo = true;
 
-  constructor() {}
+  constructor(private movieHandlerSvc: MovieHandlerService) {}
+
+  delete(movieId: number): void{
+    this.movieHandlerSvc.removeMovie(movieId);
+  }
 }
