@@ -13,7 +13,12 @@
     <div class="carousel__cards_wrapper flex">
       <ng-container *ngFor="let carouselItem of carouselItems | async">
         <div class="carousel__card flex">
-          <app-movie-card class="w-full" [movie]="carouselItem"></app-movie-card>
+          <app-movie-card
+            class="w-full"
+            [movie]="carouselItem"
+            [hasButton]="false"
+            [hasInfo]="false"
+          ></app-movie-card>
         </div>
       </ng-container>
     </div>

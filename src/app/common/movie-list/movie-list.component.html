@@ -1,9 +1,9 @@
 <div class="text-white">
   <div class="flex items-center justify-between">
     <mat-slide-toggle class="text-lg" color="primary" (change)="switchFilter($event)">Filter movies</mat-slide-toggle>
-    <button class="text-lg" mat-raised-button color="primary" type="button">
+    <a routerLink="/movies/editor" class="text-lg" mat-raised-button color="primary" >
       Create movie
-    </button>
+    </a>
   </div>
   <div *ngIf="showFilter | async">
     <form [formGroup]="movieListForm" class="movie-list__form">

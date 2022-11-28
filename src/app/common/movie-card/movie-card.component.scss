@@ -13,10 +13,18 @@
   }
 
   &__descriptor {
-    @apply w-full h-28 py-3 px-2;
+    @apply flex flex-col gap-2 w-full leading-4 py-4;
 
     &-title {
-      @apply h-[3.75rem];
+      @apply flex justify-center h-16 text-center break-all font-medium;
+    }
+
+    &-info {
+      @apply flex flex-col gap-2;
+
+      &-item {
+        @apply flex items-center gap-1 text-sm;
+      }
     }
   }
 }

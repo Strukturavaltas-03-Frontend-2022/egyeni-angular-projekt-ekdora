@@ -1,0 +1,22 @@
+.movie-editor {
+  &__form {
+    @apply flex flex-col gap-4 pt-8;
+
+    @media screen and (min-width: 992px) {
+      @apply w-1/2;
+    }
+
+    @media screen and (min-width: 576px) and (max-width: 991px) {
+      @apply w-2/3;
+    }
+
+    @media screen and (max-width: 575px) {
+      @apply w-3/4;
+    }
+
+    &_action-btns {
+      @apply flex justify-end gap-4;
+    }
+  }
+
+}

@@ -6,6 +6,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -20,6 +21,7 @@ import { HomeComponent } from './page/home/home.component';
 import { MoviesComponent } from './page/movies/movies.component';
 import { CarouselComponent } from './common/carousel/carousel.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
+import { MovieEditorComponent } from './common/movie-editor/movie-editor.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { PaginationComponent } from './common/pagination/pagination.component';
     MoviesComponent,
     CarouselComponent,
     PaginationComponent,
+    MovieEditorComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -42,6 +45,7 @@ import { PaginationComponent } from './common/pagination/pagination.component';
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatIconModule,
     MatSlideToggleModule,
     MatInputModule,

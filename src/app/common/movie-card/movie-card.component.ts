@@ -7,8 +7,9 @@ import { Movie } from '../model/movie.model';
   styleUrls: ['./movie-card.component.scss']
 })
 export class MovieCardComponent {
-  @Input() movie: Movie = new Movie();
-  @Input() cssClasses: { [key: string]: any } = {};
+  @Input() movie: Movie | undefined;
+  @Input() hasButton = true;
+  @Input() hasInfo = true;
 
   constructor() {}
 }
