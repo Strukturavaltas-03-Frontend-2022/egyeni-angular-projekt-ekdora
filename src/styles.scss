@@ -4,7 +4,7 @@
 * Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzA3NTk4NSIsIj9lcjwjYjVjZGRhIiwiO2VyPCMwNDNlNjh$LCIlPmBePCMxNmEzNGEiLCI~ZXI8I2I5ZTNjOSIsIjtlcjwjMGM4ODMyfiwid2Fybj5gXjwjYzI0MTBjIiwiP2VyPCNlZGM2YjYiLCI7ZXI8I2FjMmEwNn4sIj9UZXh0PCMwZjE3MmEiLCI~PTwjZTJlOGYwIiwiO1RleHQ8I2UyZThmMCIsIjs9PCMwZjE3MmF$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz5mYWxzZSwidmVyc2lvbj4xMX0=
 */
 
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -271,6 +271,11 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   @media screen and (max-width: 575px) {
     padding: 2rem 3rem;
   }
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing.dark-backdrop {
+  background: #000;
+  opacity: 0.5 !important;
 }
 
 @tailwind base;

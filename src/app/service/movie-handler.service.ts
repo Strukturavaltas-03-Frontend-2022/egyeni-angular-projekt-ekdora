@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { DataObject } from '../common/model/data-object.interface';
 import { Movie } from '../common/model/movie.model';
 import { MovieService } from './movie.service';
+import { UiService } from './ui.service';
 
 @Injectable({
   providedIn: 'root'
@@ -31,12 +33,15 @@ export class MovieHandlerService {
     return this._posters;
   }
 
-
   get releaseYearRanges() {
     return this._releaseYearRanges;
   }
 
-  constructor(private movieSvc: MovieService) {}
+  constructor(
+    private movieSvc: MovieService,
+    private uiService: UiService,
+    private router: Router,
+  ) {}
 
   getMovies() {
     this.movieSvc.getAll()
@@ -57,6 +62,7 @@ export class MovieHandlerService {
             this._releaseYears = [ ...new Set(this._releaseYears) ].sort();
             this.setReleaseYearRanges();
             // console.log(this._genres, this._posters, this._releaseYears, this._releaseYearRanges);
+            this.uiService.loading.next(false);
           }
         )
       ).subscribe();
@@ -67,15 +73,33 @@ export class MovieHandlerService {
   };
 
   createMovie(movie: Movie) {
-    this.movieSvc.create(movie).subscribe((movie) => this.getMovies());
+    this.uiService.loading.next(true);
+    this.movieSvc.create(movie).pipe(
+      tap((movie) => {
+        this.getMovies();
+        this.router.navigate(['movies']);
+      }),
+    ).subscribe();
   };
 
   modifyMovie(movie: Movie) {
-    this.movieSvc.update(movie).subscribe((movie) => this.getMovies());
+    this.uiService.loading.next(true);
+    this.movieSvc.update(movie).pipe(
+      tap((movie) => {
+        this.getMovies();
+        this.router.navigate(['movies']);
+      }),
+    ).subscribe();
   };
 
   removeMovie(movieId: number) {
-    this.movieSvc.remove(movieId).subscribe((movie) => this.getMovies());
+    this.uiService.loading.next(true);
+    this.movieSvc.remove(movieId).pipe(
+      tap((movie) => {
+        this.getMovies();
+        this.router.navigate(['movies']);
+      }),
+    ).subscribe();
   };
 
   lastXYears(x: number) {

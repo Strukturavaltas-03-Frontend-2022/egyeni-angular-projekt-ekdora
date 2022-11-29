@@ -1,5 +1,5 @@
 .navigation {
-  @apply flex items-center gap-6 sticky top-0 z-20 font-medium;
+  @apply flex items-center gap-6 h-10 px-4 sticky top-0 z-20 font-medium;
 
   .active {
     @apply border-b border-sky-300 text-sky-300;
