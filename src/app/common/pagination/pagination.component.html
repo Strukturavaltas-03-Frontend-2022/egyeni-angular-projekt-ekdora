@@ -1,6 +1,6 @@
 <div class="pagination">
   <div class="text-white">Total: {{ (listItems$ | async)?.length }}</div>
-  <div class="flex flex-wrap">
+  <div class="flex max-[575px]:flex-col max-[575px]:gap-2">
     <div class="pagination__pager">
       <button mat-icon-button (click)="jumpTo(false)">
         <mat-icon svgIcon="page-first"></mat-icon>

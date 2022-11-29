@@ -1,6 +1,10 @@
 .pagination {
   @apply flex flex-wrap justify-between items-center text-lg gap-2 py-4;
 
+  @media screen and (max-width: 575px) {
+    @apply flex-col;
+  }
+
   button {
     mat-icon {
       transform: scale(calc(5/4));

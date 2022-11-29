@@ -1,16 +1,17 @@
 .movie-list {
   @apply flex flex-col gap-4;
 
+  &__actions {
+    @apply flex max-[575px]:flex-col max-[575px]:gap-4 items-center justify-between;
+  }
+
   &__filter {
     @apply border border-sky-300 rounded;
   }
 
   &__form {
     @apply flex flex-wrap gap-[5%] px-[3%] pt-[3%];
-
-    @media screen and (max-width: 575px) {
-      @apply flex flex-col;
-    }
+    @apply max-[575px]:flex-col;
 
     &_input {
       @apply mb-4;
@@ -31,21 +32,19 @@
   }
 
   &__sorting {
-    @apply flex flex-wrap items-center gap-4 text-lg pb-4;
+    @apply flex items-center gap-4 text-lg pb-4;
+    @apply max-[575px]:flex-col;
   }
 
   &__card {
+    @apply max-[575px]:flex-col max-[575px]:justify-center max-[575px]:w-full;
+
     @media screen and (min-width: 992px) {
       width: calc(100% / 4 - 2.25rem);
     }
 
     @media screen and (min-width: 576px) and (max-width: 991px) {
       width: calc(100% / 2 - 1.5rem);
-      justify-content: center;
-    }
-
-    @media screen and (max-width: 575px) {
-      width: 100%;
       justify-content: center;
     }
   }

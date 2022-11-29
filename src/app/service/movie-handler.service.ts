@@ -103,7 +103,10 @@ export class MovieHandlerService {
     this.movieSvc.remove(movieId).pipe(
       tap((movie) => {
         this.getMovies();
-        this.router.navigate(['movies']);
+        const currentUrl = this.router.url;
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate([currentUrl]);
+        });
       }),
     ).subscribe();
   };

@@ -1,9 +1,9 @@
 <div class="movie-list">
-  <div class="flex flex-wrap items-center justify-between">
-    <mat-slide-toggle class="text-lg text-white" color="primary" (change)="switchFilter($event)">Filter movies</mat-slide-toggle>
+  <div class="movie-list__actions">
     <a [routerLink]="'/movies/' + 0" class="text-lg text-white" mat-raised-button color="primary" >
       Create movie
     </a>
+    <mat-slide-toggle class="text-lg text-white" color="primary" (change)="switchFilter($event)">Filter movies</mat-slide-toggle>
   </div>
   <div *ngIf="showFilter | async" class="movie-list__filter">
     <form [formGroup]="movieListForm" class="movie-list__form">
