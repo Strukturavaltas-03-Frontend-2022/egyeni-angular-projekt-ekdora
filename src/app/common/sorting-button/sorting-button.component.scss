@@ -1,0 +1,7 @@
+.sorting-button {
+  @apply flex items-center gap-1;
+
+  &__btn {
+    @apply text-sky-300 bg-slate-500;
+  }
+}

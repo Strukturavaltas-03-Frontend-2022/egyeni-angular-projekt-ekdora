@@ -1,11 +1,11 @@
-<div class="text-white">
-  <div class="flex items-center justify-between">
-    <mat-slide-toggle class="text-lg" color="primary" (change)="switchFilter($event)">Filter movies</mat-slide-toggle>
-    <a [routerLink]="'/movies/' + 0" class="text-lg" mat-raised-button color="primary" >
+<div class="movie-list">
+  <div class="flex flex-wrap items-center justify-between">
+    <mat-slide-toggle class="text-lg text-white" color="primary" (change)="switchFilter($event)">Filter movies</mat-slide-toggle>
+    <a [routerLink]="'/movies/' + 0" class="text-lg text-white" mat-raised-button color="primary" >
       Create movie
     </a>
   </div>
-  <div *ngIf="showFilter | async">
+  <div *ngIf="showFilter | async" class="movie-list__filter">
     <form [formGroup]="movieListForm" class="movie-list__form">
       <mat-form-field appearance="fill" class="movie-list__form_input">
         <mat-label>Title</mat-label>
@@ -59,6 +59,21 @@
   </div>
 </div>
 <app-pagination [listItems$]="movies$" (pageElements)="handlePage($event)"></app-pagination>
+<div class="movie-list__sorting">
+  <p class="text-white">Sort by:</p>
+  <app-sorting-button
+    label="Title"
+    sortingProp="title"
+    [sortedProp]="movieHandlerSvc.sortedProp"
+    (sortType)="sortBy('title', $event)"
+  ></app-sorting-button>
+  <app-sorting-button
+    label="Release year"
+    sortingProp="releaseYear"
+    [sortedProp]="movieHandlerSvc.sortedProp"
+    (sortType)="sortBy('releaseYear', $event)"
+  ></app-sorting-button>
+</div>
 <div class="flex flex-wrap gap-12">
   <app-movie-card
     class="movie-list__card flex"

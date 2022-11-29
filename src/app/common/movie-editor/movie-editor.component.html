@@ -64,7 +64,14 @@
     </mat-form-field>
     <mat-checkbox formControlName="active" color="primary" class="text-white">Active</mat-checkbox>
     <div class="movie-editor__form_action-btns">
-      <button mat-flat-button class="slate-300" class="text-lg">Cancel</button>
+      <button
+        mat-flat-button
+        class="slate-300"
+        class="text-lg"
+        [routerLink]="'/movies'"
+      >
+        Cancel
+      </button>
       <button
         mat-raised-button
         color="accent"

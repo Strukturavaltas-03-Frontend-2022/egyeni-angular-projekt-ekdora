@@ -27,6 +27,7 @@ import { PaginationComponent } from './common/pagination/pagination.component';
 import { MovieEditorComponent } from './common/movie-editor/movie-editor.component';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './common/spinner/spinner.component';
+import { SortingButtonComponent } from './common/sorting-button/sorting-button.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SpinnerComponent } from './common/spinner/spinner.component';
     PaginationComponent,
     MovieEditorComponent,
     SpinnerComponent,
+    SortingButtonComponent,
   ],
   imports: [
     AppRoutingModule,

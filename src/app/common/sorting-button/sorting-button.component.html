@@ -1,0 +1,6 @@
+<div class="sorting-button">
+  <label [for]="sortingProp" class="text-sky-300">{{ label }}</label>
+  <button [id]="sortingProp" mat-icon-button color="primary" class="sorting-button__btn" (click)="sort()">
+    <mat-icon [svgIcon]="(currIcon | async) || ''"></mat-icon>
+  </button>
+</div>

@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { MovieHandlerService } from 'src/app/service/movie-handler.service';
 import { DataObject } from '../model/data-object.interface';
 import { Movie } from '../model/movie.model';
+import { SortType } from '../model/sortType.type';
 
 @Component({
   selector: 'app-movie-list',
@@ -22,7 +23,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
   private showFilterSubscription: Subscription | undefined;
 
   constructor(
-    private movieHandlerSvc: MovieHandlerService,
+    public movieHandlerSvc: MovieHandlerService,
     private fb: FormBuilder,
   ) {
     this.movieListForm = this.fb.group({
@@ -63,5 +64,9 @@ export class MovieListComponent implements OnInit, OnDestroy {
     });
 
     this.movieHandlerSvc.filterMovies(modifiedFormEntries);
+  }
+
+  sortBy(propName: string, sortType: SortType) {
+    this.movieHandlerSvc.sortMovies(propName, sortType);
   }
 }

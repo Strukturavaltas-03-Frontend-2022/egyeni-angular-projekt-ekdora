@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, take, tap } from 'rxjs';
 import { DataObject } from '../common/model/data-object.interface';
 import { Movie } from '../common/model/movie.model';
+import { SortType } from '../common/model/sortType.type';
 import { MovieService } from './movie.service';
 import { UiService } from './ui.service';
 
@@ -12,6 +13,7 @@ import { UiService } from './ui.service';
 export class MovieHandlerService {
   private _movies = new BehaviorSubject<Movie[]>([]);
   private _filteredMovies = new BehaviorSubject<Movie[]>([]);
+  private _sortedProp = new BehaviorSubject<string>('');
   private _genres: string[] = [];
   private _posters: string[] = [];
   private _releaseYears: number[] = [];
@@ -23,6 +25,10 @@ export class MovieHandlerService {
 
   get filteredMovies() {
     return this._filteredMovies as Observable<Movie[]>;
+  }
+
+  get sortedProp() {
+    return this._sortedProp as Observable<string>;
   }
 
   get genres() {
@@ -128,6 +134,23 @@ export class MovieHandlerService {
         this._filteredMovies.next(filteredMovies);
       })
     ).subscribe();
+  }
+
+  sortMovies(propName: string, sortType: SortType) {
+    if (sortType) {
+      this._sortedProp.next(propName);
+      this._filteredMovies.pipe(
+        take(1),
+        tap((filteredMovies) => {
+          const sortTypeFns = {
+            asc: (a: Movie, b: Movie) => a[propName] > b[propName] ? 1 : -1,
+            desc: (a: Movie, b: Movie) => a[propName] < b[propName] ? 1 : -1,
+          };
+
+          this._filteredMovies.next(filteredMovies.sort(sortTypeFns[sortType]));
+        }),
+      ).subscribe();
+    }
   }
 
   private setReleaseYearRanges() {

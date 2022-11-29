@@ -1,5 +1,5 @@
 .pagination {
-  @apply flex justify-between items-center text-lg gap-2 py-4;
+  @apply flex flex-wrap justify-between items-center text-lg gap-2 py-4;
 
   button {
     mat-icon {
