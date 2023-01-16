@@ -8,4 +8,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 `http://nettuts.hu/jms/ekdora/cinema`
 
 # Used frameworks and utilities
-Angular CLI version 14.2.6, Tailwind, Material, iMask.
+Angular CLI version 14.2.6, Tailwind, Material, iMask, RXJS.
